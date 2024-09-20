@@ -1,0 +1,93 @@
+/* Footer */
+.footer {
+    background-color: #123524; /* Verde escuro */
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .footer-section {
+    max-width: 300px;
+    margin: 20px;
+  }
+  
+  .footer-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .footer-section p,
+  .footer-section a {
+    font-size: 1rem;
+    color: #c3d6cc; /* Cor suave para os textos */
+    text-decoration: none;
+  }
+  
+  .footer-section a:hover {
+    color: #e0ebe6;
+  }
+  
+  /* Redes Sociais com Font Awesome */
+  .social-media .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-media .social-icons a {
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .social-media .social-icons a:hover {
+    color: #e0ebe6;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    background-color: #0f2920; /* Tom ainda mais escuro para o rodapé final */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.9rem;
+    color: #c3d6cc;
+  }
+  
+  /* Ajustes de espaçamento */
+  .main-content {
+    margin-bottom: 50px; /* Espaçamento elegante entre o conteúdo e o footer */
+  }
+  
+  .join-us {
+    margin-bottom: 0; /* Remove qualquer espaço extra antes do footer */
+  }
+  
+  /* Responsividade para o Footer */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .social-media .social-icons {
+      justify-content: center;
+    }
+  }
+  

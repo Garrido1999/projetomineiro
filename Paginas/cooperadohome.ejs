@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Cooperado</title>
+    <link rel="stylesheet" href="/public/css/cooperado.css"> <!-- Estilo específico da página do cooperado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" /> <!-- Font Awesome Icons -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <%- include('Partes/navbarlogado') %>
+
+    <main class="cooperado-main">
+        <!-- Seção do Saldo -->
+        <section class="saldo-section">
+            <h2>Saldo da Conta</h2>
+            <div class="saldo-container">
+                <span id="saldo" class="saldo-valor">R$ 5.000,00</span>
+                <button id="toggle-saldo" class="btn-toggle">
+                    <i class="fas fa-eye"></i> <!-- Ícone de olho para mostrar/ocultar saldo -->
+                </button>
+            </div>
+        </section>
+
+        <!-- Seção de Serviços Bancários -->
+        <section class="acoes-section">
+            <h2>Serviços</h2>
+            <div class="acoes-grid">
+                <!-- Primeira linha de ícones -->
+                <div class="acao">
+                    <i class="fas fa-receipt"></i>
+                    <p>Extrato</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p>Pagamentos</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-exchange-alt"></i>
+                    <p>Pix</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Cartões</p>
+                </div>
+                <!-- Segunda linha de ícones -->
+                <div class="acao">
+                    <i class="fas fa-coins"></i>
+                    <p>Investimentos</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-headset"></i>
+                    <p>Suporte</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-tools"></i>
+                    <p>Serviços</p>
+                </div>
+                <div class="acao">
+                    <i class="fas fa-university"></i>
+                    <p>Depósito</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Créditos -->
+        <section class="creditos-section">
+            <h2>Créditos Disponíveis</h2>
+            <!-- Crédito para Veículos -->
+            <div class="credito-container">
+                <h3>Crédito para Veículos</h3>
+                <div class="credito-detalhes">
+                    <span class="valor">R$ 30.000,00</span>
+                    <div class="acoes-credito">
+                        <button class="btn-credito"><i class="fas fa-car"></i> Contratar Serviço</button>
+                        <button class="btn-credito"><i class="fas fa-calculator"></i> Simulação</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crédito para Empréstimo Pessoal -->
+            <div class="credito-container">
+                <h3>Empréstimo Pessoal</h3>
+                <div class="credito-detalhes">
+                    <span class="valor">R$ 15.000,00</span>
+                    <div class="acoes-credito">
+                        <button class="btn-credito"><i class="fas fa-hand-holding-usd"></i> Contratar Serviço</button>
+                        <button class="btn-credito"><i class="fas fa-calculator"></i> Simulação</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Script para ocultar/mostrar saldo -->
+    <script>
+        document.getElementById('toggle-saldo').addEventListener('click', function() {
+            const saldo = document.getElementById('saldo');
+            if (saldo.innerText === '******') {
+                saldo.innerText = 'R$ 5.000,00';  // Aqui você pode usar o saldo real do cooperado
+                this.innerHTML = '<i class="fas fa-eye"></i>';
+            } else {
+                saldo.innerText = '******';
+                this.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            }
+        });
+    </script>
+</body>
+</html>

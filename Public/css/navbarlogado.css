@@ -1,0 +1,90 @@
+/* Estilizando a navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d6a4f; /* Verde escuro */
+    padding: 10px 20px;
+    color: white;
+    height: 70px; /* Altura fixa da navbar */
+}
+
+/* Logo da navbar */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.navbar .logo img {
+    max-height: 50px; /* Define um limite para a altura da logo */
+    width: auto;
+    object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+    pointer-events: none; /* Impede clique na logo */
+}
+
+/* Informações do cooperado e botão de logout */
+.cooperado-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cooperado-nome {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-sair {
+    background-color: #e63946;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-sair:hover {
+    background-color: #d62828;
+}
+
+/* Centralizando o conteúdo principal da página do cooperado */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 20px auto;
+    max-width: 1000px; /* Limita a largura do conteúdo */
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .navbar .cooperado-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .logo img {
+        max-height: 40px; /* Reduz a altura da logo em dispositivos menores */
+    }
+
+    .btn-sair {
+        padding: 6px 10px;
+    }
+}

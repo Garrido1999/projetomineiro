@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto InstitutoCred</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/Public/css/style.css">
+</head>
+<body>
+    <header>
+        <%- include('Partes/navbar') %> <!-- Inclui o arquivo 'navbar.ejs' da pasta 'Partes' -->
+    </header>
+    
+    <main class="main-content">
+        <section class="about-coop">
+            <h1>Bem-vindo à Cooperativa InstitutoCred</h1>
+            <p>
+                Nós somos a maior cooperativa do país! Oferecemos serviços financeiros exclusivos e personalizados para nossos cooperados, com taxas reduzidas e condições especiais. Nosso compromisso é ajudar você a alcançar seus objetivos financeiros com segurança e confiança.
+            </p>
+        </section>
+
+        <section class="why-choose-us">
+            <h2>Por que escolher o InstitutoCred?</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h3>Taxas de Juros Reduzidas</h3>
+                    <p>Aproveite taxas de juros que você não encontrará em nenhum outro lugar. Temos o compromisso de proporcionar o melhor para nossos cooperados.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Atendimento Personalizado</h3>
+                    <p>Nossa equipe dedicada está sempre pronta para ajudar. Cada cooperado é tratado com respeito e atenção individualizada.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Segurança e Confiança</h3>
+                    <p>Com anos de experiência no mercado, nossa cooperativa garante total segurança e transparência em todas as operações.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-us">
+            <h2>Junte-se a Nós</h2>
+            <p>
+                Faça parte da maior cooperativa financeira do Brasil. Venha descobrir como podemos ajudar você a crescer e prosperar. Nosso compromisso é com o seu sucesso!
+            </p>
+            <button class="cta-button" id="cta-cooperado">Seja um Cooperado</button> <!-- Botão que abre o modal -->
+        </section>
+
+        <section class="coop-history">
+            <h2>História das Cooperativas no Brasil</h2>
+            <p>
+                As cooperativas no Brasil começaram a se estruturar no século XIX, com o intuito de promover a união e o apoio mútuo entre trabalhadores e pequenos produtores. A primeira cooperativa oficial foi fundada em 1889, e, desde então, o movimento cooperativo tem crescido, abrangendo diversos setores, como agricultura, finanças, saúde e educação.
+            </p>
+            <p>
+                Hoje, o Brasil é um dos maiores países em número de cooperativas, contando com milhões de cooperados em várias áreas. As cooperativas se destacam por sua estrutura democrática e participativa, onde todos os membros têm voz e compartilham os benefícios gerados pelas atividades da cooperativa. Nosso compromisso é com a cooperação, o desenvolvimento sustentável e o crescimento mútuo.
+            </p>
+        </section>
+
+        <section class="why-we-are-the-best">
+            <h2>Por que o InstitutoCred é a Melhor Escolha?</h2>
+            <ul class="benefits-list">
+                <li>✔ Atendimento rápido e personalizado</li>
+                <li>✔ Soluções financeiras inovadoras</li>
+                <li>✔ Rede ampla de cooperados em todo o Brasil</li>
+                <li>✔ Transparência e ética em todas as operações</li>
+                <li>✔ Suporte financeiro para crescimento sustentável</li>
+                <li>✔ Programas educacionais e de formação para cooperados</li>
+            </ul>
+        </section>
+    </main>
+  
+    <!-- Modal de Cadastro de Cooperado -->
+    <div id="cadastroModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastro de Cooperado</h2>
+            <form>
+                <label for="nome-completo">Nome Completo:</label>
+                <input type="text" id="nome-completo" placeholder="Digite seu nome completo" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Crie uma senha" required>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <%- include('Partes/footer') %>
+
+    <!-- JavaScript -->
+    <script src="/Public/js/navbar.js"></script>
+</body>
+</html>

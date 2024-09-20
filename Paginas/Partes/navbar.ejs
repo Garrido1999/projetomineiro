@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/Public/css/navbar.css"> <!-- Caminho atualizado para o CSS -->
+
+<nav class="navbar">
+  <div class="logo">
+    <a href="/">
+      <img src="/Public/Imagens/Logo.png" alt="InstitutoCred Logo" class="logo-img"> <!-- Caminho atualizado para a logo -->
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" id="login-btn" class="btn-entrar">Entrar</a></li>
+    <li><a href="#" id="cadastro-btn" class="btn-cadastro">Cadastro de Cooperado</a></li>
+  </ul>
+</nav>
+
+<!-- Modal de Login -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <form action="/login" method="POST"> <!-- Atualizado para enviar o login via POST -->
+      <label for="account-number">Número da Conta (Email):</label>
+      <input type="text" id="account-number" name="email" placeholder="Digite o email da sua conta" required> <!-- O campo "email" será usado para o login -->
+
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="senha" placeholder="Digite sua senha" required> <!-- Campo para senha -->
+
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de Cadastro de Cooperado -->
+<div id="cadastroModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Cadastro de Cooperado</h2>
+    <form action="/registro" method="POST"> <!-- Formulário envia dados via POST para /registro -->
+      <label for="nome-completo">Nome Completo:</label>
+      <input type="text" id="nome-completo" name="nome" placeholder="Digite seu nome completo" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+<script src="/Public/js/navbar.js"></script> <!-- Caminho atualizado para o JS -->
