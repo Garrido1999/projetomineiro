@@ -17,7 +17,7 @@
         <section class="saldo-section">
             <h2>Saldo da Conta</h2>
             <div class="saldo-container">
-                <span id="saldo" class="saldo-valor">R$ 5.000,00</span>
+                <span id="saldo" class="saldo-valor">R$ <%= saldo.toFixed(2) %></span>
                 <button id="toggle-saldo" class="btn-toggle">
                     <i class="fas fa-eye"></i> <!-- Ícone de olho para mostrar/ocultar saldo -->
                 </button>
@@ -58,7 +58,7 @@
                     <i class="fas fa-tools"></i>
                     <p>Serviços</p>
                 </div>
-                <div class="acao">
+                <div class="acao" id="depositButton">
                     <i class="fas fa-university"></i>
                     <p>Depósito</p>
                 </div>
@@ -94,16 +94,102 @@
         </section>
     </main>
 
-    <!-- Script para ocultar/mostrar saldo -->
+    <!-- Modal de Depósito -->
+    <div id="depositModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Depósito</h2>
+            <form id="depositForm">
+                <label for="depositAmount">Quanto você quer depositar?</label>
+                <input type="number" id="depositAmount" name="depositAmount" step="0.01" min="0" required>
+                <button type="submit">Depositar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Estilos do Modal -->
+    <style>
+        .modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- Script para ocultar/mostrar saldo e gerenciar modal de depósito -->
     <script>
+        // Alternar exibição de saldo
         document.getElementById('toggle-saldo').addEventListener('click', function() {
             const saldo = document.getElementById('saldo');
             if (saldo.innerText === '******') {
-                saldo.innerText = 'R$ 5.000,00';  // Aqui você pode usar o saldo real do cooperado
+                saldo.innerText = 'R$ <%= saldo.toFixed(2) %>'; // Exibe o saldo real do cooperado
                 this.innerHTML = '<i class="fas fa-eye"></i>';
             } else {
                 saldo.innerText = '******';
                 this.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            }
+        });
+
+        // Abrir e fechar o modal de depósito
+        const depositButton = document.getElementById('depositButton');
+        const depositModal = document.getElementById('depositModal');
+        const closeModal = document.getElementById('closeModal');
+
+        depositButton.addEventListener('click', () => {
+            depositModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            depositModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === depositModal) {
+                depositModal.style.display = 'none';
+            }
+        });
+
+        // Enviar valor de depósito para o servidor
+        document.getElementById('depositForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const depositAmount = parseFloat(document.getElementById('depositAmount').value);
+
+            const response = await fetch('/depositar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ amount: depositAmount }),
+            });
+
+            if (response.ok) {
+                const newBalance = await response.json();
+                document.getElementById('saldo').innerText = `R$ ${newBalance.toFixed(2)}`;
+                depositModal.style.display = 'none';
+            } else {
+                alert('Erro ao realizar o depósito');
             }
         });
     </script>
